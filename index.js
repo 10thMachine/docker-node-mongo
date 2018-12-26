@@ -21,7 +21,7 @@ const User = require('./models/User');
 
 app.get('/', (req, res) => {
   User.find()
-    .then(users => res.render('index', { user }))
+    .then(users => res.render('index', { users }))
     .catch(err => res.status(404).json({ msg: 'No users found' }));
 });
 
