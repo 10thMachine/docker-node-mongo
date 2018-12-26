@@ -1,8 +1,10 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const express     = require('express');
+const mongoose    = require('mongoose');
+const bodyParser  = require('body-parser');
 
-const app = express();
+const app   = express();
+const User  = require('./models/User');
+const port  = 3000;
 
 app.set('view engine', 'ejs');
 
@@ -16,8 +18,6 @@ mongoose
   )
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
-
-const User = require('./models/User');
 
 app.get('/', (req, res) => {
   User.find()
@@ -33,7 +33,5 @@ app.post('/user/add', (req, res) => {
 
   newUser.save().then(user => res.redirect('/'));
 });
-
-const port = 3000;
 
 app.listen(port, () => console.log('Server running...'));
