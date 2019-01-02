@@ -4,6 +4,7 @@ const bodyParser  = require('body-parser');
 
 const app   = express();
 const User  = require('./models/User');
+
 const PORT  = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
