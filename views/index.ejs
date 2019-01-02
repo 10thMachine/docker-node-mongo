@@ -10,22 +10,18 @@
 
 <body>
   <h1>My Node App</h1>
-  <form method="POST" action="/user/add">
 
-    <label for="username">Username</label>
-    <input type="text" name="username">
-
-    <label for = "password">Password</label>
-    <input type="password" name="password">
-
-    <input type="submit" value="Add">
-  </form>
+  <a href='/signup'>Sign Up!</a>
+  
   <h4>Users:</h4>
   <ul>
     <% users.forEach(function(user) { %>
-      <li>
-        <%= user.username %>
-      </li>  
+      <ol>
+        <li>
+          <%= user.username %>
+          <%= user.password %>
+        </li>
+      </ol>  
       <% }); %>
   </ul>
 </body>
