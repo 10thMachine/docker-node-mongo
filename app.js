@@ -21,6 +21,6 @@ mongoose
 
 // Routes
 app.use('/', require('./routes/index.js'));
-app.use('/users', require('./routes/users.js'));
+app.use('/signup', require('./routes/signup.js'));
 
 app.listen(PORT,  console.log(`Server running is running on ${PORT}`));
