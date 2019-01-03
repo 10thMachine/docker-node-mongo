@@ -15,11 +15,11 @@ router.post('/', (req, res) => {
       password: req.body.password
     });
     
-    bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(newUser.password, salt, function(err, hash) {
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(newUser.password, salt, (err, hash) => {
         if(err) console.log(err);
         newUser.password = hash;
-        console.log(`$(newUser.password)`);
+        console.log(`${newUser.password}`);
         newUser.save().then(user => { res.redirect('/'); }).catch(err => console.log(err));
       })
     })
