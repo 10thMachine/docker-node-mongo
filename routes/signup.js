@@ -7,19 +7,19 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    const newUser = new User({
-      username: req.body.username,
-      password: req.body.password
-    });
+  const newUser = new User({
+    username: req.body.username,
+    password: req.body.password
+  });
 
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(newUser.password, salt, (err, hash) => {
-        if(err) throw err;
-        newUser.password = hash;
-        newUser.save().then(user => res.redirect('/'));
-      });
-    });
-    console.log("A new has been created");
+  // bcrypt.genSalt(10, (err, salt) => {
+  //   bcrypt.hash(newUser.password, salt, (err, hash) => {
+  //     if(err) throw err;
+  //     newUser.password = hash;
+  //     newUser.save().then(user => res.redirect('/'));
+  //   });
+  // });
+  console.log("A new user has been created");
   });
 
 module.exports = router;
