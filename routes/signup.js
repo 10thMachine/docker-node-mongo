@@ -12,13 +12,16 @@ router.post('/', (req, res) => {
     password: req.body.password
   });
 
-  // bcrypt.genSalt(10, (err, salt) => {
-  //   bcrypt.hash(newUser.password, salt, (err, hash) => {
-  //     if(err) throw err;
-  //     newUser.password = hash;
-  //     newUser.save().then(user => res.redirect('/'));
-  //   });
-  // });
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(newUser.password, salt, (err, hash) => {
+      if(err) {
+        console.log(err);
+      } else {
+        newUser.password = hash;
+        newUser.save().then(user => res.redirect('/'));
+      }
+    });
+  });
   console.log("A new user has been created");
   });
 
