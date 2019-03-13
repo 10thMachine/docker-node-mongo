@@ -19,10 +19,14 @@ router.post('/', (req, res) => {
       bcrypt.hash(newUser.password, salt, (err, hash) => {
         if(err) console.log(err);
         newUser.password = hash;
+        console.log(`${newUser.username}`);
         console.log(`${newUser.password}`);
-        newUser.save().then(user => { res.redirect('/'); }).catch(err => console.log(err));
-      })
-    })
+        newUser
+          .save()
+          .then(user => { res.redirect('/'); })
+          .catch(err => console.log(err));
+      });
+    });
     console.log("A new user has been created");
   });
 

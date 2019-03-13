@@ -6,13 +6,13 @@ services:
     build: .
     ports:
       - '80:3000'
-    links:
-      - user_db
-  mongo:
-    container_name: user_db
-    image: mongo
-    volumes:
-      - ./data/db:/data/db
-    ports:
-      - '27017:27017'
-
+    #links:
+      #- user_db
+      # - docker_login_user
+  #database:
+    #container_name: user_db
+    #image: mongo
+    #volumes:
+      #- ./data/db:/data/db
+    #ports:
+      #- '27017:27017'
